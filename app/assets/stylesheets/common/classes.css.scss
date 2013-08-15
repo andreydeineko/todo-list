@@ -1,0 +1,19 @@
+.hidden { display: none; }
+.invisible { visibility: hidden; }
+.inline { display: inline; }
+.absolute { position: absolute; }
+.error-text { color: $errorText; }
+.success-text { color: $successText; }
+.info-text { color: $infoText; }
+.center { text-align: center };
+
+.important {
+    color: lighten($red, 10%);
+}
+
+a.important {
+    &:hover {
+        color: $red;
+        text-decoration: none; /* It's beautifull already */
+    }
+}

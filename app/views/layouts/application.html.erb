@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RubyGarage</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<%# the body attributes are used for JS init, styles encapsulation %>
+<body id='<%= controller_path.dasherize.gsub('/', '-') %>' data-action='<%= action_name.dasherize %>' >
+  <div id='wrapper'>
+    <%= render 'header' %>
+    <%= render 'notifications' %>
+
+    <div id='main-content' class='container'>
+      <%= yield %>
+
+      <div id='push'></div>
+    </div>
+  </div>
+
+  <%= render 'footer' %>
+  <%= javascript_include_tag "application" %>
+</body>
+
+
+</html>

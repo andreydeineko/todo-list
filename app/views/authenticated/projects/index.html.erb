@@ -1,0 +1,20 @@
+<%= page_header %>
+
+<div id='projects'>
+  <%= render @projects %>
+</div>
+
+<div class='center'>
+  <%= link_to nil, id: 'new-project-toggler', class: 'btn btn-danger' do %>
+    <%= icon_label 'icon-plus', t('.new') %>
+  <% end %>
+</div>
+
+
+<div id='new-project' class='well span6'>
+  <%= simple_form_for @project, remote: true, html: { id: 'new-project', class: 'form-horizontal' } do |form| %>
+    <%= form.input :name, required: true %>
+
+    <%= form.submit t('common.submit'), class: 'btn btn-success', disabled: true, data: { disable_with: t('common.please_wait') } %>
+  <% end %>
+</div>

@@ -1,0 +1,2 @@
+module Authenticated::ProjectsHelper
+end

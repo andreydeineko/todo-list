@@ -1,0 +1,18 @@
+<li class='task-item <%= "completed" if task.completed %>' id='task-item-<%= task.id%>'>
+  <input type='checkbox' id='task-<%= task.id %>' name='task[task_ids][]' value='<%= task.id %>'/>
+  <label class="toggle" for='task-<%= task.id %>'></label>
+  <span class='task-name' id='task-<%= task.id %>' data-resource='task' data-name='name' data-url='<%= task_path(task) %>'>
+    <%= task.name %>
+  </span>
+
+  <div class='pull-right task-options'>
+    <%= link_to complete_task_path(task), remote: true, method: 'put', class: 'complete-task', title: task.completed?? t('.uncomplete') : t('.complete') do %>
+      <%= icon_label task.completed?? 'icon-thumbs-down' : 'icon-thumbs-up' %>
+    <% end %>
+    <%= link_to '#', id: "edit-task-name-#{task.id}", class: 'edit-task-name', title: t('.edit') do %>
+      <%= icon_label 'icon-pencil' %>
+    <% end %>
+    <%= icon_label 'icon-resize-vertical task-drag-handle' %>
+  </div>
+</li>
+

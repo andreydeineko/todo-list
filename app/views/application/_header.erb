@@ -1,0 +1,20 @@
+<div class="navbar navbar-inverse" id='header'>
+
+  <div class="navbar-inner">
+    <%= link_to t('.brand'), root_path, class: 'brand' %>
+
+    <ul class="nav">
+    </ul>
+
+    <ul class='nav pull-right'>
+      <%- if user_signed_in? %>
+        <li><%= link_to t('.application'),  projects_path %></li>
+        <li><%= link_to t('auth.sign_out'), destroy_user_session_path, method: 'delete' %></li>
+      <% else %>
+        <li><%= link_to t('auth.sign_in'), new_user_session_path %></li>
+        <li><%= link_to t('auth.sign_up'), new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

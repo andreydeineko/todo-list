@@ -1,0 +1,51 @@
+en:
+  application:
+    footer:
+      message: '@ Ruby Garage'
+    header:
+      brand: 'Ruby Garage'
+      application: 'Home'
+
+  auth:
+    sign_in: 'Sign in'
+    sign_up: 'Sign up'
+    sign_out: 'Sign out'
+
+  common:
+    please_wait: 'Please Wait ..'
+    are_you_sure?: 'Are you sure?'
+    submit: 'Submit'
+    delete: 'Delete'
+    x:      '×'
+
+
+  # Models
+  activerecord:
+    models:
+      project: 'TODO List'
+      attributes:
+        project:
+          name: 'Name'
+
+  # Views
+
+  welcome:
+    index:
+      header: 'Welcome!'
+      news: 'We`re finally here! Please authenticate and visit <a class="important" href="%{url}">Projects</a> to get started!'
+
+  authenticated:
+    projects:
+      index:
+        header: 'TODO Lists'
+        new: 'Add TODO List'
+      project:
+        destroy: 'Destroy Project'
+    tasks:
+      new:
+        input_placeholder: 'Start typing here to add a task..'
+      task: 
+        edit: 'Edit'
+        move: 'Move'
+        complete: 'Mark as completed'
+        uncomplete: 'Mark as uncompleted'

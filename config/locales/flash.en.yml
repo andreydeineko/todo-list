@@ -1,0 +1,7 @@
+en:
+  flash:
+    authenticated:
+      projects:
+        create:
+          notice: 'TODO List succesfully created'
+          alert: 'Failed to create TODO list'

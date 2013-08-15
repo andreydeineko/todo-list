@@ -1,0 +1,47 @@
+<div class='project' id='project-<%= project.id %>'>
+  <div class='project-header'>
+    <span class='calendar'> <%= icon_label 'icon-calendar' %> </span>
+    <span class='project-name' id='project-<%= project.id %>' data-resource='project' data-name='name' data-url='<%= project_path(project) %>'>
+      <%= project.name %>
+    </span>
+
+    <div class='pull-right project-options'>
+      <span class='edit-project'>
+        <%= link_to '#', id: "edit-project-name-#{project.id}", class: 'edit-project-name' do %>
+          <%= icon_label 'icon-pencil' %>
+        <% end %>
+      </span>
+      <span class='destroy-project'>
+        <%= link_to project, remote: true, method: 'delete', class: 'destroy-project', title: t('.destroy'), data: { confirm: t('common.are_you_sure?') } do %>
+          <%= icon_label 'icon-trash' %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+
+  <div class='project-body'>
+    <div class='new-task-container'>
+      <%= icon_label 'icon-plus new-task-label' %>
+
+      <%= simple_form_for Task.new, remote: true, html: { id: "new-project-task-#{project.id}", class: 'new-task form-inline' } do |form| %>
+        <%= form.input :name, required: true, label: false, placeholder: t('authenticated.tasks.new.input_placeholder'), input_html: { class: 'span5' } %>
+        <%= form.input :project_id, type: :hidden, input_html: { value: project.id } %>
+        <%= form.submit t('common.submit'), class: 'btn btn-success', disabled: true, data: { disable_with: t('common.please_wait') } %>
+      <% end %>
+    </div>
+
+    <div class='project-tasks'>
+      <section class='todo'>
+        <%= simple_form_for Task.new, method: 'put', remote: true, html: { class: 'bulk-destroy-tasks' } do |form| %>
+          <ul class="todo-controls">
+            <li> <%= link_to nil, class: 'delete-selected-tasks', title: 'Delete selected tasks' do %> <%= icon_label 'icon-trash' %> <% end %> </li>
+          </ul>
+
+          <ul class='todo-list'>
+            <%= render partial: 'authenticated/tasks/task', collection: project.tasks, locals: { form: form } %>
+          </ul>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</div>

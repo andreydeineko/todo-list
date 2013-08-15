@@ -1,0 +1,14 @@
+<%= page_header %>
+
+<%- if user_signed_in? %>
+  <div class='well' id='project-news-section'>
+    <%# Yes it has news :) %>
+
+    <%= t('.news', url: projects_path).html_safe %>
+  </div>
+<% else %>
+  <div id='authentication-options'>
+    Please either <%= link_to t('auth.sign_in'), new_user_session_path, class: 'important' %> or 
+    <%= link_to t('auth.sign_up'), new_user_registration_path, class: 'important' %> to see the project news (yes it has news)
+  </div>
+<% end %>

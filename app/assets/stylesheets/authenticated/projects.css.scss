@@ -1,0 +1,59 @@
+// Place all the styles related to the authenticated/projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body#authenticated-projects {
+    .editable-click {
+        border-bottom: none; /* Overrides unwanted x-editable styles */
+    }
+    a#new-project-toggler {
+        display: inline-block;
+
+        @extend .span2;
+    }
+
+
+    div#new-project {
+        float: none;
+        margin: 25px auto;
+    }
+
+    div.project {
+        @extend .span7;
+
+        float: none;
+        margin: 25px auto;
+
+        div.project-header {
+            @include gradient-vertical($infoText, darken($infoText, 10%));
+            padding: 15px 10px;
+            border: 1px solid $infoBorder;
+
+            span.calendar {
+                color: $grayDarker;
+                font-size: 22px;
+            }
+
+            span.project-name {
+                color: white;
+                font-size: 22px;
+                margin-left: 10px;
+            }
+
+            div.project-options {
+                span.destroy-project {
+                    border-left: 1px solid cadetBlue;
+                    padding-left: 10px;
+                    margin-left: 5px;
+                }
+                a {
+                    color: white;
+                    font-size: 18px;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
