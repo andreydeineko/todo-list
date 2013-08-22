@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # ======== Assets ========
 
@@ -55,6 +55,7 @@ end
 group :development do
   gem 'zeus'
   gem 'meta_request'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -70,6 +71,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'factory_girl_rails' # factory generators
   gem 'rspec-rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
