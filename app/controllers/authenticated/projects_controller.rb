@@ -2,7 +2,7 @@ class Authenticated::ProjectsController < Authenticated::BaseController
   before_filter :find_project!, only: [ :update, :destroy ]
 
   def index
-    @projects = Project.page(params[:page]).recent_first
+    @projects = current_user.projects.page(params[:page]).recent_first
     @project  = Project.new
   end
 
