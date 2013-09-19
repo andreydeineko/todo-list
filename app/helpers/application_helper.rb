@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def navbar_link(text, path, options = {})
-    "<li class='#{ current_page?(path) ? "active" : ""}'> #{ link_to text, path, options } </li>".html_safe
-  end
-
   def error_messages_for model
     return "" if model.errors.empty?
 
